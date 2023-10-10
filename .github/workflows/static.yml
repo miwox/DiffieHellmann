@@ -35,6 +35,7 @@ jobs:
           cd ./tools/tweego
           pwd
           ./tweego ../../src -o ../../out/index.html
+          ./tweego ../../srcterminal -o ../../out/terminal.html
           
       - name: Setup Pages
         uses: actions/configure-pages@v2
