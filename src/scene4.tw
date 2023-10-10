@@ -1,0 +1,8 @@
+:: Scene4 [drink]{"position":"175,700","size":"100,100"}
+(set: _text1 to "Bob woke up in a cold sweat. What was that ? Why did he remember that day ? He looked at the letter in his hands. The cat on the back had disappeared. How was that possible ? He had been trying to hunt a madman for so long, would he become one himself now? ")\
+(set: _text2 to "He shook all over and poured himself a glass of whiskey. His nerves had to calm down first. He opened the letter and found a sequence of letters and numbers ending with an equal sign.<br><br>[[Continue...->PGScene]]")\
+(set: _holder to "Continue...")\
+(set: $blocker to false)
+<div class="storyteller">\
+($continueTextClick: _text1, _holder, (print: _text2))\
+</div>

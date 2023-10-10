@@ -1,0 +1,29 @@
+:: Scene1 [badminton] {"position":"175,700","size":"100,100"}
+(set: _text1 to "Alice and Bob were playing badminton in the garden. Suddenly their only ball flew into the old temple of secret art. Both were discussing who should retrieve the ball from the creepy temple. Bob lost scissors rock paper and had to get the ball. However, Alice knew how scared Bob is and didn't want to let him enter the temple alone. When they entered the temple with the strange characters, they saw an old man with a long beard. ")\
+(set: _text2 to "He examined the shuttlecock and then said to them I was waiting for you They both look at each other confused and ask who are you? I am waiting for the two chosen ones who will someday save the world. Sit him down and listen carefully.<br><br>[[Continue...->DiffieScene]]")\
+(set: _holder to "Continue...")\
+<div class="storyteller">\
+($continueTextClick: _text1, _holder, (print: _text2))\
+</div>
+
+
+:: DiffieScene [dojo] {"position":"175,900","size":"100,100"}
+(set: _text1 to "Alice and Bob sat in front of Diffie-san. He looked deeply into their eyes one after one, without saying a word. After a moment of silence, he said, Imagine a world without freedom. A world where a dove has to tell the hawk where to fly. In this world, the hawk can decide at any time about the life of the dove. This my children is only a parable. We will have a time when freedom is a commodity of the past.")\
+(set: _text2 to "He looked up and contemplated the sky. A dove was flying in the far distance. It was being pursued by a hawk. In the next moment, the hawk dug its talons into the dove's back. The world will not be as it once was, Diffie-san said with regret. You can stop that from happening. What do you think is the most important weapon in the battle? <br><br>[[Continue...->DiffieScene2]]")\
+(set: _holder to "Continue...")
+<div class="storyteller">\
+($continueTextClick: _text1, _holder, (print: _text2))\
+</div>
+
+
+:: DiffieScene2 [dojo2] {"position":"175,900","size":"100,100"}
+(set: _text1 to "Bob said without thinking, A really big bomb. Alice looked at him and said no, a lot of soldiers. You are both right and yet wrong. Where is the bomb going to go if no one knows where the target is? Where are the soldiers supposed to march if they don't know where? Bob thought hard and said, So a target, is the most important weapon? The master laughed No Bob, communication is the most important. Orders, goals, weaknesses, strengths and cooperation. ")\
+(set: _text2 to "Something like that only works with secure communication and that is what you will eventually lack one day. Now stand up. I'm going to teach you how to talk to each other safely starting today. Everything is based on mathematics. Prime numbers are the building blocks of all integers. Either an integer is itself a prime number or it is made up of primes. The number 12, for example, is the product of so-called prime factors, i.e. several prime numbers multiplied together: 2 times 2 times 3. A prime number is divisible only by 1 and by itself. <br><br>[[Are you Ready?|PrimeGame]]")\
+(set: _holder to "Continue...")\
+<div class="storyteller">\
+($continueTextClick: _text1, _holder, (print: _text2))
+</div>
+
+
+
+

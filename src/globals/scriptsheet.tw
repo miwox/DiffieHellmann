@@ -1,0 +1,3 @@
+:: Story JavaScript [script]
+window.blocker = false;
+console.error = function() {}

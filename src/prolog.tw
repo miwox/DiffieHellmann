@@ -1,0 +1,31 @@
+:: Intro [prolog] {"position":"175,125","size":"100,100"}
+($makeAnimatedTitle: "Diffie Hellman The Game")
+(set: _text1 to "Sounds of gunfire woke Bob up. He slowly opened his eyes and tried to remember yesterday. Again he had tried to drown his sorrows in alcohol. This town was not what it used to be. This country was not what it used to be. He threw his blanket aside and stood up. He looked outside through his window from the 76th floor. In the far distance, he recognized several men in black uniforms patrolling.")\
+(set: _holder to "Continue...")\
+(set: _text2 to "They were Hellsoldiers. Fanatical men and women controlled by Mallory the Hellman. Many of Bob's comrades suspect they are under some kind of hypnosis, but no one knows what is true. It all started 5 years ago at the Jungfernstieg in Hamburg. <br><br> [[Continue...->Intro2]]")\
+<div class="storyteller">\
+($continueTextClick: _text1, _holder,(print: _text2))
+</div>
+:: Intro2 [burningCity] {"position":"175,325","size":"100,100"}
+(set: _text1 to "He gave a speech and suddenly more and more listened to his voice. The eyes of the listeners flared up during his speech. Of course, only symbolically. However, they were the first fantastic psychics. Unfortunately, there were also policemen among the audience.")\
+(set: _holder to "Continue...")\
+(set: _text2 to "Thus began the first massacre. Within the next hour, several hundred people died. Over the next few weeks, attempts were made to get the military involved, but it was too late. Mallory the Hellman had managed to hack the audio systems and bring them under his control. What was his power? No one knew. ")\
+(set: _text3 to "Suddenly his thoughts wandered to Alice. How was his former best friend? The last time he had seen her, he had been a child. She moved to Munich and after that he had heard nothing from her. No letter, no Whatsapp message and no Facebook nudge.   <br><br> [[Continue...->Intro3]]")\
+<div class="storyteller">\
+($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, (print: _text3)))
+</div>
+:: Intro3 [burningCity2] {"position":"175,525","size":"100,100"}
+(set: _text1 to "He saw in the distance how a building was burning. Yes, there was still a resistance, but there are fewer every day. No one wants to put his family in danger. Hamburg, Berlin and the rest of the north belonged to Mallory the Hellman.  ")\
+(set: _text2 to "There was a knock at the door. Bob was startled. Not expecting a visitor, he took his P99 out of the drawer and checked the magazine. If they came for him, he would sell himself dearly. He was Bob the builder. He was the leader of the resistance. Their motto was Can we do it? YES WE CAN! Bob stood up and took quiet steps to the door. <br><br> [[Continue...->Intro4]] ")\
+(set: _holder to "Continue...")\
+<div class="storyteller">\
+($continueTextClick: _text1, _holder,(print: _text2))
+</div>
+
+:: Intro4 [cat] {"position":"175,525","size":"100,100"}
+(set: _text1 to "Of course, he would not use the peephole, as that would give away his presence. Suddenly a letter was pushed through the crack in the door and the person behind the door walked away. When the footsteps faded and Bob was sure that there was no person left in the hallway. He took the letter and examined it. ")\
+(set: _text2 to "There was no name on it that could identify the sender of the letter, only a purple Cheshire cat looking at him with a grin. The cat challenged him. He didn't know why, but something seemed strange about the cat.  How did Bob know the Cheshire Cat? Suddenly he knew again. Alice! Suddenly he felt dizzy. His surroundings began to spin and then everything was black.  <br> <br>[[Continue...->Scene1]]")\
+(set: _holder to "Continue...")\
+<div class="storyteller">\
+($continueTextClick: _text1, _holder,(print: _text2))
+</div>

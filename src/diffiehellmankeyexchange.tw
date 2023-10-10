@@ -1,0 +1,45 @@
+:: Hellman-Key [quiz]{"position":"375,1050","size":"100,100"} 
+($makeAnimatedTitle: "DHM Protocol")
+
+<div class="storyteller">Now it's getting a bit technical, but don't be afraid! It's necesscary to become the hidden hero in the history of mankind.
+The DHM protocal allows to create the same key between two parties without changing the key.
+Also when someone is hearing the communication between the two parties this the third party cannot reproduce the key of the two parties.
+That's the most dangerous weapon for you Alice & Bob, so be careful and listen to all the this stept carefully.
+</div>
+Step 1:
+<div class="storyteller">
+Alice and Bob; you both should communicate with each other and set a common prime number. 
+Don't be afraid, it's okay if someone is listening your communication and also know about the common prime number.
+</div>
+Okay our prime number is $COMMON_PRIME.
+Continue..
+(click-replace:"Continue..")[Step 2:
+<div class="storyteller">
+Okay perfect! You both chosed the wonderful $COMMON_PRIME as your common prime number. After that please choose together a number which is smaller than your prime number $COMMON_PRIME \
+and also a primitive root of $COMMON_PRIME. \
+What a primitive root is can you find out by yourself. But for now on it's not so important.
+</div>
+Okay our primitive root is $COMMON_GEN.
+Continue..
+(click-replace:"Continue..")[Step 3:
+<div class="storyteller">
+Perfect you choosed the $COMMON_PRIME as your prime number and the $COMMON_GEN as your primitive root of the $COMMON_PRIME. \
+Also yet don't be afraid if somone had listen to your communication, because the person would not discover your common key. \
+Now Alice and Bob each of you should choose your secret number. \
+Your secret number should be smaller than your common prime number $COMMON_PRIME. \
+Now it's very important don't ever share your secret with someone! \
+Why Sensei?(click-replace:"Why Sensei?")[ BECAUSE It'S A FRICKING SECRET DON'T BE A MORON!!!!!!]
+</div>
+Bob: My number is the $BOBS_SECRET.
+Okay..
+(click-replace:"Okay..")[
+Alice: My number is the $ALICE_SECRET. And I won't tell anyone Sensei-San.
+Okay..
+(click-replace:"Okay..")[
+<div class="storyteller">I hope you both had written down your secrets in a secure place. And never ever share this secret with someone. I can't mention it enough.
+So it's getting a bit mathematical. So both of you show your secret weapon! Which one?
+(click-replace:"Which one?")[ -.- The Casio calculator of course!! And not your REAL secret!!
+Are you ready?(click-replace:"Are you ready?")[
+    Now both of you should calculate a number which with those number you both have chosen. What exactly I'll tell you in the next steps Habibis.
+[[Go the next steps|Hellman-Key2]]]]
+</div>]]]]

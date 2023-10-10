@@ -1,0 +1,61 @@
+:: Secret-Box2 [quiz]{"position":"375,1050","size":"100,100"}
+($makeAnimatedTitle: "Diffie Hellman The Game")
+<div class ="quiz-info">\
+The formula of the computation of the public key is:
+{\(Your \: Public \: Key \: = \: g^s \: modulo \: p\)}
+
+The Explanation of the formula:
+{\(s\)} is your secret. Very important: {\(s \lt p\)}!
+{\(g\)} is the common primitive root of your common primenumber {\(p\)}. Very important: {\(g \lt p\)}. 
+{\(p\)} is the common prime number between Alice and Bob.
+</div>
+Secret Box (that no one can see)\
+<div class="quiz-info">\
+The common prime number was set to: $COMMON_PRIME.
+The common prime root of modolu your prime was set to: $COMMON_GEN.
+Alice secret was: $ALICE_SECRET.
+Bobs secret was: $BOBS_SECRET.
+
+Under that circumstances:
+<Bob>PLACEHOLDER</Bob>
+<Alice>PLACEHOLDER</Alice>\
+<!--- Very ugly, but because of Twine there is no other option !!! -->
+<script>
+let latex = window.document.querySelector("Bob");
+latex.innerText = "\\(Bobs \\: Public \\: Key \\: is \\: Y_{Bob} =\\:" + $COMMON_GEN + "^{" + $BOBS_SECRET + "}\\: \\: modulo \\: \\: " + $COMMON_PRIME + "\\)";
+latex = window.document.querySelector("Alice");
+latex.innerText = "\\(Alice' \\: Public \\: Key \\: is \\: Y_{Alice} =\\:" + $COMMON_GEN + "^{" + $ALICE_SECRET + "}\\: \\: modulo \\: \\: " + $COMMON_PRIME + "\\)";
+</script>\
+(display:"Refresh-Button")\
+($SHOW_TERMINAL:)
+</div>
+
+<div class= "storyteller">\
+Dear Bob and Alice. Now use your brain and calculate the public key... Afterwards share your public key with each other... \
+If Diffie the Mallory is hearing out your communication, it won't have any effect on you secret key...
+</div>
+
+:: PublicKeyCalculation [quiz]{"position":"375,1050","size":"100,100"}
+($LOG_GLOBALS:)\
+(set: $BLOCKER_1 to false)\
+(set: _question1 to "Bob's public key is: " + $BOBS_PUBLICKEY + "10")\
+(set: _question2 to "Bob's public key is: " + $BOBS_PUBLICKEY)\
+(set: _question3 to "Bob's public key is: 1" + $BOBS_PUBLICKEY)\
+(display: "Secret-Box2")\
+
+Your score: (live: 0.5s)[(print: $SCORE)]
+($makeQuiz: _question1, false, _question2, true, _question3, false)
+
+(live: 1s)[(if: $BLOCKER_1)[[Next Question|PublicKeyCalculation2]]]
+
+:: PublicKeyCalculation2 [quiz]{"position":"375,1050","size":"100,100"}
+($LOG_GLOBALS:)\
+(set: $BLOCKER_1 to false)\
+(set: _question1 to "Alice public key is: " + $ALICE_PUBLICKEY + "1")\
+(set: _question2 to "Alice public key is: 1" + $ALICE_PUBLICKEY)\
+(set: _question3 to "Alice public key is: " + $ALICE_PUBLICKEY)\
+(display: "Secret-Box2")\
+Your score: (live: 0.5s)[(print: $SCORE)]
+($makeQuiz: _question1, false, _question2, false, _question3, true)
+
+(live: 1s)[(if: $BLOCKER_1)[[Let's calculate our secret key.|SecretKey]]]

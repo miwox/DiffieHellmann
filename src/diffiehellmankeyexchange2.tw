@@ -1,0 +1,32 @@
+:: Secret-Box [quiz]{"position":"375,1050","size":"100,100"}
+
+Secret Box (that no one can see)\
+<div class="quiz-info">The common prime number was set to: $COMMON_PRIME.
+The common prime root of modolu $COMMON_PRIME was set to: $COMMON_GEN.
+Alice secret was: $ALICE_SECRET.
+Bobs secret was: $BOBS_SECRET.</div>
+
+:: Hellman-Key2 [quiz]{"position":"375,1050","size":"100,100"}
+($makeAnimatedTitle: "DHM Protocol")
+(display: "Secret-Box")
+Step 2: 
+<div class="storyteller">\
+Now it's the turn to get your dusty calculators out from your dusty keller.\
+The next step is to calculate your public key which you share with each other. 
+Why is it called public?
+Please check up following box to compute your public key:
+(click-replace: "Why is it called public?")[Because it's not a secret so its allow to share it. Even if Hellman get noticed of it, and you know he will it's not a problem!]\
+</div>\
+
+<div class="quiz-info">\
+The formula is: 
+{\(Your \: Public \: Key \: = \: g^s \: modulo \: p\)}
+
+The Explanation of the formular:
+{\(s\)} is your secret. Very important: {\(s \lt p\)}.
+{\(g\)} is the common primitive root of your common primenumber {\(p\)}. Very important: {\(g \lt p\)}. 
+{\(p\)} is the common prime number between Alice and Bob.
+(display:"Refresh-Button")\
+</div>
+
+[[Let's calculate your public keys Alice and Bob|PublicKeyCalculation]]

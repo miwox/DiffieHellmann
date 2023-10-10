@@ -1,0 +1,166 @@
+:: Terminal
+(set: $TERMINAL_TEXT to "Hello... Listen carfully... You should not be here.... How did you find this place???? Who cares... I'm the old terminal of the villain Mallory the Hellman.... Maybe you find a way to defeat Mallory on the next page... Please rescue the world and help us out here....")\
+<!--- Importan for the text animation -->\
+(set: $BLOCKER to false)\
+###Forbidden Zone...
+<div id="msg" class="terminal-message"></div>
+[[I read everything carefully and want to use the Terminal...|Terminal2]]
+
+<script>
+var text = $TERMINAL_TEXT;
+
+var showText = function (target, message, index, interval) {   
+  if (index < message.length && !$BLOCKER) {
+    $(target).append(message[index++]);
+    setTimeout(function () { showText(target, message, index, interval); }, interval);
+  }
+}
+
+$(function () {
+  showText("#msg", text, 0, 50);   
+});
+
+</script>
+
+:: Terminal2 {"position":"175,125","size":"100,100"}
+(set: $BLOCKER to true)\
+### Security mechanism: Please leave this place!!
+<div id="terminal" class="terminal-container"></div>
+
+(set: $name to "Mallory")\
+(set: $path to "~/")\
+(set: $terminal_var to "asdljnasdjnasd")\
+(set: $terminal_var2 to "weekljdnwerwe")\
+(set: $terminal_var3 to "weekljdnwerwe")\
+
+<script>
+function loadScript(src) {
+  let script = document.createElement('script');
+  script.src = src;
+  script.async = false;
+  document.head.appendChild(script);
+  console.log(document.head);
+}
+
+loadScript("../srcterminal/globals/crypto-js.js");
+var script = document.createElement('script');
+script.src = "../srcterminal/globals/terminal-js.js";
+script.onload = function() {
+
+function color(name, string) {
+    var colors = {
+        blue: '#55f',
+        green: '#4d4',
+        grey: '#999',
+        red: '#A00',
+        yellow: '#FF5',
+        violet: '#a320ce',
+        white: '#fff'
+    }
+    if (colors[name]) {
+        return '[[;' + colors[name] + ';]' + string + ']';
+    } else {
+        return string;
+    }
+}
+
+var term = $('#terminal').terminal({
+    te: function (user) {
+        this.echo('Hello ' + user);
+    },
+    help: function () {
+        this.echo('Here is a list of available commands:');
+        this.echo('');
+        this.echo(`${color('yellow', "show_var")} - Show the environment string vars of the terminal`);
+        this.echo('');
+        this.echo(`${color('yellow', "set_to_var arg1 arg2")} - Will set arg1 to arg2 (name of a env variable)`);
+        this.echo('');
+        this.echo(`${color('yellow', "encode_base64 arg1")} - Will encode arg1 to base64.`);
+        this.echo('');
+        this.echo(`${color('yellow', "decode_base64 arg1")} - Will decode arg1 from base64.`);
+        this.echo('');
+        this.echo(`${color('yellow', "isPrime arg1")} - will check if arg1 is a prime number.`);
+        this.echo('');
+        this.echo(`${color('yellow', "powerModulo arg1 arg2 arg3")} - will (arg1 ^ arg2) MODULO arg3.`);
+        this.echo('');
+        this.echo(`${color('yellow', "encode_aes arg1 arg2")} - will encode arg1 with key arg2.`);
+        this.echo('');
+        this.echo(`${color('yellow', "decode_aes arg1 arg2")} - will decode arg1 with key arg2.`);
+
+    },
+
+    base64: function (t, str) {
+        if (t == "to") {
+            this.echo(btoa(str));
+        } else if (t == "from") {
+            this.echo(atob(str));
+        }
+    },
+
+    pow: function(basis, power, mod){
+        this.echo("Hallo");
+    },
+
+    show_var: function(){
+        this.echo(' $terminal_var is available and is set with: ' + $terminal_var);
+        this.echo(' $terminal_var2 is available and is set with: ' + $terminal_var2);
+        this.echo(' $terminal_var3 is available and is set with:' + $terminal_var3);
+    },
+
+    set_to_var: function(){
+        this.echo(' $terminal_var is available and is set with: ' + $terminal_var);
+        this.echo(' $terminal_var2 is available and is set with: ' + $terminal_var2);
+        this.echo(' $terminal_var3 is available and is set with:' + $terminal_var3);
+    }, 
+    encode_base64: function(string){
+        this.echo(btoa(string));
+    },
+
+    decode_base64: function(string){
+        this.echo(atob(string));
+    }, 
+    
+    isPrime: function(int){
+        for(let i = 2, s = Math.sqrt(int); i <= s; i++)
+        if(int % i === 0){this.echo(int + " is not prime"); return;}
+        this.echo(int + " is prime or used a invalid integer...");
+    },
+
+    encode_aes: function(text, key){
+        var ciphertext = CryptoJS.AES.encrypt(text.toString(), key.toString());
+        console.log(ciphertext.toString());
+        this.echo(ciphertext.toString());
+    },
+
+    decode_aes: function(text, key){
+        var bytes = CryptoJS.AES.decrypt(text.toString(), key.toString());
+        var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+        this.echo(plaintext);
+    },
+
+    powerModulo: function (base, exponent, modulus) {
+        var b = BigInt(base);
+        var e = BigInt(exponent);
+        var m = BigInt(modulus);
+        var result = BigInt(1);
+        while (e > 0) {
+            if (e % 2n == 1n) {
+                result = (result * b) % m;
+    }
+        b = (b * b) % m;
+        e /= 2n;
+  }
+  this.echo(base + " POWER " + exponent + " MODULO " + modulus + " = " + result);
+}
+}, {
+    greetings: 'Hello ' + $name + ', type help to get a list of available commands! ',
+    prompt() {
+        return `┌──(${color('green', $name + "@oldPC")})-[${color('red', 'HEAVY WARNING: Selfdestruction!!')}]
+└─\$ `;
+    },
+    checkArity: true
+});
+    };
+    
+document.head.appendChild(script);
+</script>

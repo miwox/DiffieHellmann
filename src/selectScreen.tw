@@ -1,0 +1,36 @@
+:: SelectScreen[startscreen] {"position":"175,700","size":"100,100"}
+(set: $BLOCKER_1 to false)\
+(set: $BLOCKER_2 to false)\
+(set: $BLOCKER_3 to false)\
+(set: $BLOCKER_4 to false)\
+(live: 0.1s)[(if: $BLOCKER_1)[(go-to: "Intro")]]\
+(live: 0.1s)[(if: $BLOCKER_2)[(go-to: "PrimeGame")]]\
+(live: 0.1s)[(if: $BLOCKER_3)[(go-to: "Hellman-Key")]]\
+(live: 0.1s)[(if: $BLOCKER_4)[(go-to: "PGScene")]]\
+
+<script>
+window.goToScreen = (page) => {
+  switch (page) {
+    case 'Intro': $BLOCKER_1 = true; break;
+    case 'PrimeGame': $BLOCKER_2 = true; break;
+    case 'Hellman-Key': $BLOCKER_3 = true; break;
+    case 'PGScene': $BLOCKER_4 = true; break;
+  }
+ }
+</script>\
+($makeAnimatedTitle: "Diffie Hellman The Game")
+
+<div class="box-1">
+  <div class="btn btn-one storytext" onclick="goToScreen('Intro')">
+    <span>Story Mode</span>
+  </div>
+    <div class="btn btn-one quiztext" onclick="goToScreen('PrimeGame')">
+    <span>Prime Game</span>
+  </div>
+  <div class="btn btn-one hellmantext" onclick="goToScreen('Hellman-Key')">
+    <span>Diffie-Hellman Tutorial</span>
+  </div>
+  <div class="btn btn-one primetext" onclick="goToScreen('PGScene')">
+    <span>Key-Exchange Game</span>
+  </div>
+</div>

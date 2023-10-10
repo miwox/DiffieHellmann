@@ -1,0 +1,36 @@
+:: CaluclateScene [ending]{"position":"175,700","size":"100,100"}
+
+<div class="storyteller">
+The public key from Alice's message is: $ALICE_PUBLICKEY_2
+Bob must now calculate your secret key...
+<formular></formular>
+
+        <label for="key">Key:</label>
+        <input type="number" name="key" id="key" required/>
+        <button class="button-28" role="button" onclick="calculateKey()">Calculate</button>
+        ($SHOW_TERMINAL:)\
+</div>\
+<script>
+let latex = window.document.querySelector("formular");
+latex.innerText = "\\(Bobs \\: Secret \\: Key \\: is \\: S_{Bob} =\\:" + $ALICE_PUBLICKEY_2 + "^{" + $BOBS_SECRET_2 + "}\\: \\: modulo \\: \\: " + $COMMON_PRIME_2 + "\\)";
+</script>
+(display:"Refresh-Button")\
+
+<div class="storyteller" id="hiddenResults" style="display: none;">
+You've found a letter of Alice... it seems like base64
+The string on the letter looks like this:
+<textarea rows="10" id="ecnryptedStringWithBase64" cols="50"></textarea>
+
+After Base64 decoding
+<textarea rows="10" id="ecnryptedString" cols="50"></textarea>
+
+Now we do a XOR with the ecnryptedString and our Key 
+<textarea rows="10" id="keyInBinary" cols="50"></textarea>
+This is the binary of the string
+<textarea rows="10" id="stringInBinary" cols="50"></textarea>
+And finally we need to to convert binary to String.
+($makeAnimatedTitle: "The message is:")
+<textarea rows="10" id="teststring" cols="50"></textarea>
+
+</div>
+($FILE_ENCRYPTION_SCENE: )

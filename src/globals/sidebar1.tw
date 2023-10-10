@@ -1,0 +1,2 @@
+:: Sidebar1 {"position":"1300,75","size":"100,100"}
+(append: ?Sidebar)[[[Prolog|Intro]]<br>[[Prolog2|Intro2]]<br>[[Prolog3|Intro3]]<br>[[Scene1|Scene1]]<br>[[Scene2|DiffieScene]]]

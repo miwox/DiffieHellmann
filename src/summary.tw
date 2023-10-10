@@ -1,0 +1,77 @@
+:: DiffieExplanation2 [quiz]{"position":"175,1050","size":"100,100"}
+
+($makeAnimatedTitle: "DHM summary")
+
+<div class="quiz-info"><ol>\
+<li><Step1></Step1></li>
+<li><Step2>Choose your private secret:</Step2>
+    <ul>
+        <li><Step21></Step21></li>
+        <li><Step22></Step22></li>\
+    </ul>\
+</li>
+<li><Step3>Choose your secrets..</Step3>
+    <ul>
+        <li><Step31></Step31></li>
+        <li><Step32></Step32></li>
+    </ul>\
+</li>\
+<li>Now share your public key with each other.</li>
+<li><Step4>Calculate your private keys:</Step4>
+    <ul>
+        <li><Step41></Step41></li>
+        <li><Step42></Step42></li>
+    </ul>\
+</li>\
+<li>Notice that both of your secret keys are the same!</li>\
+</ol></div>\
+
+<div class="storyteller">\
+Follow following steps.. and you can defeat Hellmann!\
+(display:"Refresh-Button")\
+</div>
+
+
+Additional information for primitive roots (for advanced players):
+<div class="quiz-info">\
+A primitive root of a prime number is a number that generates the whole set of integers modulo the prime number when taken to successive powers. In other words, if we take the primitive root to the power of 0 through the prime number minus 1, we get every number from 1 to the prime number minus 1.
+For example, consider the prime number 11.
+A primitive root of 11 is a number that generates the sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 when taken to successive powers modulo 11.
+The number 2 is a primitive root of 11, because 2^0 = 1, 2^1 = 2, 2^2 = 4, 2^3 = 8, 2^4 = 5, 2^5 = 10, 2^6 = 9, 2^7 = 7, 2^8 = 3, and 2^9 = 6.
+This sequence contains every number from 1 to 10, so 2 is a primitive root of 11.
+</div>
+[[Let's wake up |Scene4]]
+<script>
+let latex = window.document.querySelector("Step1");
+latex.innerText = "Alice and Bob share a prime \\(q\\) and a primitive root \\(\\alpha\\) of the prime, so that \\(\\alpha < q\\).";
+
+latex = window.document.querySelector("Step2");
+latex.innerText = "Alice and Bob choose a secret, so that \\(X_x < q\\)";
+
+latex = window.document.querySelector("Step21");
+latex.innerText = "Alice choose your secret, so that \\(X_A< q\\)";
+
+latex = window.document.querySelector("Step22");
+latex.innerText = "Bob choose your secret, so that \\(X_B < q\\)";
+
+latex = window.document.querySelector("Step3");
+latex.innerText = "Alice and Bob calculate your public keys, like \\(Y_X = \\alpha^{X_X} \\: mod \\: q\\)";
+
+latex = window.document.querySelector("Step31");
+latex.innerText = "Alice calculate your public key, like \\(Y_A = \\alpha^{X_A} \\: mod \\: q\\)";
+
+latex = window.document.querySelector("Step32");
+latex.innerText = "Bob calculate your public key, like \\(Y_B = \\alpha^{X_B} \\: mod \\: q\\)";
+
+latex = window.document.querySelector("Step4");
+latex.innerText = "Alice and Bob calculate your secret keys, like \\(S = Y_X^{X_X} \\: mod \\: q\\)";
+
+latex = window.document.querySelector("Step41");
+latex.innerText = "Alice calculate your secret key, like \\(S = Y_B^{X_A} \\: mod \\: q\\)";
+
+latex = window.document.querySelector("Step42");
+latex.innerText = "Bob calculate your secret key, like \\(S = Y_A^{X_B} \\: mod \\: q\\)";
+
+
+
+</script>

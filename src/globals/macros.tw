@@ -1,0 +1,588 @@
+:: Macros {"position":"375,1050"}
+# Dev-Page
+<!-- Global variables passed to all the game --->
+(set: $BLOCKER_1 to false)\
+(set: $BlOCKER_2 to false)\
+(set: $SCORE to 0)\
+
+<!-- Global constants --->
+(set: $CHECKBOX_TEXT to "Choose the correct answer!")\
+(set: $ALERT_CORRECT to "Correct Answer! Congratulation.")\
+(set: $ALERT_ALREADY_DONE to "Already answered")\
+(set: $ALERT_WRONG_ANSWER to "Sorry, your answer is wrong")\
+
+<!-- Trainings scene constants --->
+(set: $COMMON_PRIME to "30539")\
+(set: $COMMON_GEN to "30404")\
+(set: $BOBS_SECRET to "29343")\
+(set: $ALICE_SECRET to "4534")\
+
+<!-- This constants will be calculated at the beginning of the game-->
+(set: $ALICE_PUBLICKEY to "")\
+(set: $BOBS_PUBLICKEY to "")\
+(set: $BOBS_SECRET_KEY to "")\
+(set: $ALICE_SECRET_KEY to "")\
+<!-- End of trainings scene constants-->\
+(set: $GAME_FINISHER_TEXT to "")\
+<script>
+let GAME_FINISHER =
+`
+
+
+
+
+ /$$     /$$                                                              
+|  $$   /$$/                                                              
+ \  $$ /$$/   /$$$$$$  /$$   /$$                                          
+  \  $$$$/   /$$__  $$| $$  | $$                                          
+   \  $$/   | $$  \ $$| $$  | $$                                          
+    | $$    | $$  | $$| $$  | $$                                          
+    | $$    |  $$$$$$/|  $$$$$$/                                          
+    |__/     \______/  \______/                                           
+                                                                          
+                                                                          
+                                                                          
+                                                                          
+                                                                          
+  /$$$$$$   /$$$$$$   /$$$$$$                                             
+ |____  $$ /$$__  $$ /$$__  $$                                            
+  /$$$$$$$| $$  \__/| $$$$$$$$                                            
+ /$$__  $$| $$      | $$_____/                                            
+|  $$$$$$$| $$      |  $$$$$$$                                            
+ \_______/|__/       \_______/                                            
+                                                                          
+                                                                          
+                                                                          
+                                                                          
+                                                                          
+  /$$$$$$                                                                 
+ |____  $$                                                                
+  /$$$$$$$                                                                
+ /$$__  $$                                                                
+|  $$$$$$$                                                                
+ \_______/                                                                
+                                                                          
+                                                                          
+                                                                          
+ /$$      /$$                       /$$                                   
+| $$$    /$$$                      | $$                                   
+| $$$$  /$$$$  /$$$$$$   /$$$$$$$ /$$$$$$    /$$$$$$   /$$$$$$            
+| $$ $$/$$ $$ |____  $$ /$$_____/|_  $$_/   /$$__  $$ /$$__  $$           
+| $$  $$$| $$  /$$$$$$$|  $$$$$$   | $$    | $$$$$$$$| $$  \__/           
+| $$\  $ | $$ /$$__  $$ \____  $$  | $$ /$$| $$_____/| $$                 
+| $$ \/  | $$|  $$$$$$$ /$$$$$$$/  |  $$$$/|  $$$$$$$| $$                 
+|__/     |__/ \_______/|_______/    \___/   \_______/|__/                 
+                                                                          
+                                                                          
+                                                                          
+            /$$$$$$                                                       
+           /$$__  $$                                                      
+  /$$$$$$ | $$  \__/                                                      
+ /$$__  $$| $$$$                                                          
+| $$  \ $$| $$_/                                                          
+| $$  | $$| $$                                                            
+|  $$$$$$/| $$                                                            
+ \______/ |__/                                                            
+                                                                          
+                                                                          
+                                                                          
+ /$$$$$$$  /$$  /$$$$$$   /$$$$$$  /$$                                    
+| $$__  $$|__/ /$$__  $$ /$$__  $$|__/                                    
+| $$  \ $$ /$$| $$  \__/| $$  \__/ /$$  /$$$$$$                           
+| $$  | $$| $$| $$$$    | $$$$    | $$ /$$__  $$                          
+| $$  | $$| $$| $$_/    | $$_/    | $$| $$$$$$$$                          
+| $$  | $$| $$| $$      | $$      | $$| $$_____/                          
+| $$$$$$$/| $$| $$      | $$      | $$|  $$$$$$$                          
+|_______/ |__/|__/      |__/      |__/ \_______/                          
+                                                                          
+                                                                          
+                                                                          
+ /$$   /$$           /$$ /$$                                              
+| $$  | $$          | $$| $$                                              
+| $$  | $$  /$$$$$$ | $$| $$ /$$$$$$/$$$$   /$$$$$$  /$$$$$$$  /$$$$$$$   
+| $$$$$$$$ /$$__  $$| $$| $$| $$_  $$_  $$ |____  $$| $$__  $$| $$__  $$  
+| $$__  $$| $$$$$$$$| $$| $$| $$ \ $$ \ $$  /$$$$$$$| $$  \ $$| $$  \ $$  
+| $$  | $$| $$_____/| $$| $$| $$ | $$ | $$ /$$__  $$| $$  | $$| $$  | $$  
+| $$  | $$|  $$$$$$$| $$| $$| $$ | $$ | $$|  $$$$$$$| $$  | $$| $$  | $$  
+|__/  |__/ \_______/|__/|__/|__/ |__/ |__/ \_______/|__/  |__/|__/  |__/  
+                                                                          
+                                                                          
+                                                                          
+                                                                          
+                                                                          
+                                                                          
+                                                                          
+                                                                          
+                                                                          
+                                                                          
+                                                                          
+                                                                          
+                                                                          
+                                                                          
+ /$$     /$$                                                              
+|  $$   /$$/                                                              
+ \  $$ /$$/   /$$$$$$  /$$   /$$                                          
+  \  $$$$/   /$$__  $$| $$  | $$                                          
+   \  $$/   | $$  \ $$| $$  | $$                                          
+    | $$    | $$  | $$| $$  | $$                                          
+    | $$    |  $$$$$$/|  $$$$$$/                                          
+    |__/     \______/  \______/                                           
+                                                                          
+                                                                          
+                                                                          
+  /$$$$$$  /$$           /$$           /$$                       /$$      
+ /$$__  $$|__/          |__/          | $$                      | $$      
+| $$  \__/ /$$ /$$$$$$$  /$$  /$$$$$$$| $$$$$$$   /$$$$$$   /$$$$$$$      
+| $$$$    | $$| $$__  $$| $$ /$$_____/| $$__  $$ /$$__  $$ /$$__  $$      
+| $$_/    | $$| $$  \ $$| $$|  $$$$$$ | $$  \ $$| $$$$$$$$| $$  | $$      
+| $$      | $$| $$  | $$| $$ \____  $$| $$  | $$| $$_____/| $$  | $$      
+| $$      | $$| $$  | $$| $$ /$$$$$$$/| $$  | $$|  $$$$$$$|  $$$$$$$      
+|__/      |__/|__/  |__/|__/|_______/ |__/  |__/ \_______/ \_______/      
+                                                                          
+                                                                          
+                                                                          
+   /$$     /$$                                                            
+  | $$    | $$                                                            
+ /$$$$$$  | $$$$$$$   /$$$$$$                                             
+|_  $$_/  | $$__  $$ /$$__  $$                                            
+  | $$    | $$  \ $$| $$$$$$$$                                            
+  | $$ /$$| $$  | $$| $$_____/                                            
+  |  $$$$/| $$  | $$|  $$$$$$$                                            
+   \___/  |__/  |__/ \_______/                                            
+                                                                          
+                                                                          
+                                                                          
+  /$$$$$$                                                                 
+ /$$__  $$                                                                
+| $$  \__/  /$$$$$$  /$$$$$$/$$$$   /$$$$$$                               
+| $$ /$$$$ |____  $$| $$_  $$_  $$ /$$__  $$                              
+| $$|_  $$  /$$$$$$$| $$ \ $$ \ $$| $$$$$$$$                              
+| $$  \ $$ /$$__  $$| $$ | $$ | $$| $$_____/                              
+|  $$$$$$/|  $$$$$$$| $$ | $$ | $$|  $$$$$$$                              
+ \______/  \_______/|__/ |__/ |__/ \_______/                              
+                                                                          
+                                                                          
+                                                                          
+
+
+
+`
+$GAME_FINISHER_TEXT = GAME_FINISHER;
+</script>
+
+<!--- Scene 4 global constants -->
+
+(set: $COMMON_PRIME_2 to "20996011")\
+(set: $COMMON_GEN_2 to "10")\
+(set: $BASE_64_SEPARATOR to " is COMMON PRIME\n::::::::::HELLO BOB IT'S ME ALICE::::::::::\n is GENERATOR ")\
+
+<!-- Will be computed in JavaScript -->
+
+(set: $BASE_64_ENCODED to "")\
+
+
+(set: $ALICE_SECRET_MESSAGE to "Bob we finally made it.. Check your terminal...")\
+(set: $ALICE_SECRET_2 to "1002323")\
+(set: $BOBS_SECRET_2 to "CHOOSED BY THE GAME PLAYER")\
+(set: $BOBS_PUBLICKEY_2 to "")\
+(set: $ALICE_PUBLICKEY_2 to "")\
+(set: $BOBS_SECRET_KEY_2 to "WILL BE CALCULATED AFTER USER CHOOSE SECRET")
+(set: $ALICE_SECRET_KEY_2 to "WILL BE CALCULATED AFTER USER CHOOSE SECRET")
+<!-- Alice choosen generator and prime key into a base64 string -->
+
+
+(set: $PRIMEFORTHESTORY to "7")\
+(set: $NUMBERFORTHESTORY to "3")\
+
+
+
+<!--- BASE64-Encoding-->
+(set: $POWFUNCTION to (macro: [\
+(output:)[\
+<script>
+window.pow = function (base, exponent, modulus) {
+  // Convert the base, exponent, and modulus to BigInts
+  var b = BigInt(base);
+  var e = BigInt(exponent);
+  var m = BigInt(modulus);
+
+  // Initialize the result to 1
+  let result = BigInt(1);
+
+  // Perform the modular exponentiation
+  while (e > 0) {
+    // If the exponent is odd, multiply the result by the base
+    if (e % 2n == 1n) {
+      result = (result * b) % m;
+    }
+    // Square the base and divide the exponent by 2
+    b = (b * b) % m;
+    e /= 2n;
+  }
+
+  // Return the result
+  return result;
+}
+</script>\
+]]))
+
+
+
+
+
+<!-- Define modulo pow function in this context -->
+($POWFUNCTION: )\
+
+
+
+
+
+
+<!-- Calculate the different keys for the training and save them into globals constants.-->
+<script>
+var common_prime = BigInt($COMMON_PRIME);
+var common_gen = BigInt($COMMON_GEN);
+var alice_secret = BigInt($ALICE_SECRET);
+var bobs_secret = BigInt($BOBS_SECRET);
+
+//Game play keys
+var common_prime_2 = BigInt($COMMON_PRIME_2);
+var common_gen_2 = BigInt($COMMON_GEN_2);
+var alice_secret_2 = BigInt($ALICE_SECRET_2);
+
+var alicePublicKeyn = pow(common_gen, alice_secret, common_prime);
+var bobPublicKeyn = pow(common_gen, bobs_secret, common_prime);
+var aliceKey = pow(bobPublicKeyn, alice_secret, common_prime);
+var bobsKey = pow(alicePublicKeyn, bobs_secret, common_prime);
+
+var alicePublicKey2n = pow(common_gen_2, alice_secret_2, common_prime_2);
+
+$ALICE_PUBLICKEY_2 = alicePublicKey2n.toString();
+$ALICE_PUBLICKEY = alicePublicKeyn.toString();
+$BOBS_PUBLICKEY = bobPublicKeyn.toString();
+$ALICE_SECRET_KEY = aliceKey.toString();
+$BOBS_SECRET_KEY = bobsKey.toString();
+</script>\
+
+
+
+
+
+<!-- Base64 encryption --->
+<script>
+$BASE_64_ENCODED = btoa($COMMON_PRIME_2 + $BASE_64_SEPARATOR + $COMMON_GEN_2);
+</script>
+
+
+
+
+<!-- Logging global variables/constants for debugging ---------------------------------------->
+(set: $LOG_GLOBALS to (macro: [
+    (output:)[\
+<script>
+console.log("Common Prime: " + $COMMON_PRIME);
+console.log("Common Gen: " + $COMMON_GEN);
+console.log("Alice Secret: " + $ALICE_SECRET);
+console.log("Bobs Secret: " + $BOBS_SECRET );
+console.log("Bobs Public: " + $BOBS_PUBLICKEY);
+console.log("Alice Public: " + $ALICE_PUBLICKEY);
+console.log("Bobs Secret Key: " + $BOBS_SECRET_KEY);
+console.log("Bobs Secret Key: " + $ALICE_SECRET_KEY);
+</script>\
+]]))
+
+
+(set: $SHOW_TERMINAL to (macro: [
+  (output:)[\
+  <button class="button-28" onclick="window.open('../out/terminal.html'); return false">Open the hidden door..</button>
+  ]]))
+
+
+
+<!-- Pass a text, a place; and a additional text which will be displayed after clicking on the place holder.
+_hideStr hast to be command-type to provided nested calls of this method :)-->
+(set: $continueTextClick to (macro: str-type _showStr, str-type _placeHolderStr, command-type _hideStr, [
+    (output:)[\
+    _showStr
+    _placeHolderStr\
+    (click-replace: _placeHolderStr)[\
+        _hideStr]\
+]]))
+
+
+
+
+<!-- Macro for evaluate quiz-->
+(set: $evaluateQuiz to (macro: boolean-type _answer1, boolean-type _shouldBe1, boolean-type _answer2, boolean-type _shouldBe2, boolean-type _answer3, boolean-type _shouldBe3, [
+    (output:)[(print: _answer1 is _shouldBe1 and _answer2 is _shouldBe2 and _answer3 is _shouldBe3)]
+]))\
+
+
+
+
+
+<!-- Macro for evaluate quiz-->
+(set: $createQuizBox3 to (macro: boolean-type _answer1, boolean-type _shouldBe1, boolean-type _answer2, boolean-type _shouldBe2, boolean-type _answer3, boolean-type _shouldBe3, [
+    (output:)[(print: _answer1 is _shouldBe1 and _answer2 is _shouldBe2 and _answer3 is _shouldBe3)]
+]))\
+
+
+
+
+
+<!-- Macro for showing the button so that Bob can read the message of Alice -->
+(set: $showBase64MessageButton to (macro: [
+    (output:)[\
+<Button class="button-28" role="button" onClick="evaluateButton()">Show me the message!</Button>
+<textarea rows="4" cols="25"></textarea>
+<script>
+window.evaluateButton = () => {
+let latex = window.document.querySelector("textarea");
+latex.innerText = $BASE_64_ENCODED;
+}
+</script>\
+]]))
+
+<!-- Macro for show input fields and a button to evaluate the input of Bob. Also setting the blocker variable --->
+(set: $inputButtonDecodedBase64Elements to (macro: [
+  
+    (output:)[\
+Enter the common prime number
+<input type="number" id="prime" required/>
+Enter the common generator
+<input type="number" id="generator" required />
+<button class="button-28" role="button" onclick="evaluateDecodedElementsSetBlocker()">Check the numbers</button>
+</div>
+<!-- Evaluate the input string of Bob-->
+<script>
+window.evaluateDecodedElementsSetBlocker = function(){
+    //get the user input for prime and number
+       let prime = document.getElementById('prime').value;
+       let generator = document.getElementById('generator').value;
+
+       if($BLOCKER_1){
+        alert($ALERT_CORRECT);
+       } else if (prime !== $COMMON_PRIME_2){
+        alert($ALERT_WRONG_ANSWER);
+       } else if (generator !== $COMMON_GEN_2){
+        alert($ALERT_WRONG_ANSWER);
+       } else {
+        alert($ALERT_CORRECT);
+        $BLOCKER_1 = true;
+       }
+}
+</script>
+]]))
+
+<!--- Input fileds for Bob's secret and Bob's public key -->
+
+(set: $inputButtonSendPublicKey to (macro: [
+    (output:)[\
+        <div class="inline">
+        <div class="left-container">
+        Your secret:
+        <input type="number" id="secretbob" required/>
+        </div>
+        <div class ="right-container">
+        Your public key:
+        <input type="number" id="publickey" required />
+        <button class="button-28" role="button" onclick="evaluateSendBobsKey()">Send your public key</button>
+        </div>
+        </div>\
+($POWFUNCTION: )\
+ <script>
+
+ window.evaluateSendBobsKey = function(){
+
+        const secretbob = BigInt(document.getElementById('secretbob').value);
+        const commonPrime = BigInt($COMMON_PRIME_2);
+        const commonGen = BigInt($COMMON_GEN_2);
+        const keyIs = BigInt(document.getElementById('publickey').value);
+        const keyShould = pow(commonGen, secretbob, commonPrime);
+        if(secretbob >= commonPrime){
+            alert("Your Secret is too big :(");
+        } else if(secretbob < 1){
+            alert("Dont fool me LOL!");
+        } else if(keyIs == keyShould){
+            alert("Good choice!");
+            $BLOCKER_1 = true;
+            $BOBS_SECRET_2 = secretbob.toString();
+            $BOBS_PUBLICKEY_2 = keyShould.toString();
+            $BOBS_SECRET_KEY_2 = pow(BigInt($ALICE_PUBLICKEY_2), secretbob, commonPrime).toString();
+            $ALICE_SECRET_KEY_2 = $BOBS_SECRET_KEY_2;
+        } else {
+            alert("Your public key ist false");
+        }
+}
+</script>
+]]))
+
+<!-- Macro for diplay an animated text -->
+(set: $makeAnimatedTitle to (macro: str-type _title, [
+  (output:)[
+<div class="container">\
+  <div class="stack" style="--stacks: 3;">\
+    <span style="--index: 0;">_title</span>\
+    <span style="--index: 1;">_title</span>\
+    <span style="--index: 2;">_title</span>\
+  </div>\
+</div>\
+]
+]))
+
+<!-- Macro for displaying and evaluating a quiz-->
+(set: $makeQuiz to (macro: str-type _passage1, boolean-type _shouldBe11, str-type _passage2, boolean-type _shouldBe22, str-type _passage3, boolean-type _shouldBe33, [
+    (output:)[
+        (set: _quizPassage1Is to false)\
+        (set: _quizPassage2Is to false)\
+        (set: _quizPassage3Is to false)\
+        (set: _shouldBe1 to _shouldBe11)\
+        (set: _shouldBe2 to _shouldBe22)\
+        (set: _shouldBe3 to _shouldBe33)\
+        $CHECKBOX_TEXT
+        <div class="quiz">\
+        (checkbox: bind _quizPassage1Is, _passage1)
+        (checkbox: bind _quizPassage2Is, _passage2)
+        (checkbox: bind _quizPassage3Is, _passage3)
+        <button type="button" class="button-28"
+        onClick="evaluateButton()"
+        quiz-argFirst-is= '_quizPassage1Is'
+        quiz-argFirst-should='_shouldBe1'
+        quiz-argSecond-is='_quizPassage2Is'
+        quiz-argSecond-should='_shouldBe2'
+        quiz-argThird-is='_quizPassage3Is'
+        quiz-argThird-should='_shouldBe3'> Evaluate </button>\
+        <script>
+        window.evaluateButton = () => { 
+        let arg0i = window.event.target.getAttribute('quiz-argFirst-is');
+        let arg0s = window.event.target.getAttribute('quiz-argFirst-should');
+        let arg1i = window.event.target.getAttribute('quiz-argSecond-is');
+        let arg1s = window.event.target.getAttribute('quiz-argSecond-should');
+        let arg2i = window.event.target.getAttribute('quiz-argThird-is');
+        let arg2s = window.event.target.getAttribute('quiz-argThird-should');
+
+        if(!$BLOCKER_1 && (eval(arg0i) == eval(arg0s)) && (eval(arg1i) == eval(arg1s)) && (eval(arg2i) == eval(arg2s))){
+            $SCORE += 100;
+            $BLOCKER_1 = true;
+            alert($ALERT_CORRECT);
+        } else if ($BLOCKER_1){
+            alert($ALERT_ALREADY_DONE);
+        } else {
+            alert($ALERT_WRONG_ANSWER);
+        }
+    }
+        </script>
+    ]]))
+
+
+
+<!-- Javascript function for the last scence-->
+(set: $FILE_ENCRYPTION_SCENE to (macro: [
+  (output:)[\
+<script>
+window.calculateKey = function(){
+  console.log($GAME_FINISHER_TEXT);
+  //Example String
+    let teststring = $ALICE_SECRET_MESSAGE;
+       let key = document.getElementById('key').value;
+              if(key !== $ALICE_SECRET_KEY_2){
+                alert('Wrong key!');
+              } else {
+                alert('You are a master of Diffie Hellman now');
+                document.getElementById("hiddenResults").style.display="block";
+                         let keyInBinary = stringToBinary(key);
+                         let extendedKey = keyInBinary
+                         let stringInBinary = stringToBinary(teststring);
+                         //extend the key until it has the same size like the string
+                         if (stringInBinary.length != keyInBinary.length && stringInBinary.length > keyInBinary.length){
+                              var counter = 0;                           
+                               while(stringInBinary.length != extendedKey.length){
+                                extendedKey+=keyInBinary.charAt(counter);
+                                if(counter==keyInBinary.length){
+                                    counter = 0 ;
+                                }else{
+                                    counter++;
+                                }
+                               }
+                         }
+              //build encrypted String with xor of binary of string and key
+              let xorString ="";
+              for(var i=0; i<stringInBinary.length; i++) {
+                var value1 = stringInBinary[i];
+                var value2 = extendedKey[i];
+                var xorValue = value1 ^ value2;
+                xorString+=xorValue;
+              }
+            let ecnryptedStringWithBase64 = btoa(xorString);
+            let ecnryptedString = xorString;
+            document.getElementById('teststring').innerHTML = teststring;
+            document.getElementById('ecnryptedStringWithBase64').innerHTML = ecnryptedStringWithBase64;
+            document.getElementById('ecnryptedString').innerHTML = ecnryptedString;
+            document.getElementById('keyInBinary').innerHTML = extendedKey;
+            document.getElementById('stringInBinary').innerHTML = stringInBinary;
+          }
+}
+
+
+window.stringToBinary = function(input){
+  var characters = input.split('');
+
+  return characters.map(function(char) {
+    const binary = char.charCodeAt(0).toString(2)
+    const pad = Math.max(8 - binary.length, 0);
+    // Just to make sure it is 8 bits long.
+    return '0'.repeat(pad) + binary;
+  }).join('');
+}
+
+window.binaryToString = function(input){
+
+  let bytesLeft = input;
+  let result = '';
+
+  // Check if we have some bytes left
+  while (bytesLeft.length) {
+    // Get the first digits
+    const byte = bytesLeft.substr(0, 8);
+    bytesLeft = bytesLeft.substr(8);
+
+    result += String.fromCharCode(parseInt(byte, 2));
+  }
+
+  return result;
+}
+</script>]]))
+
+
+
+<!-- START STORY HERE! ---------------------------------------->
+(go-to: "SelectScreen")
+
+<!-- Latex Refresh page necessary because of bug in twine -->
+:: Refresh-Button {"position":"375,1050"}
+<!--button class="button-28" role="button" type="button" onClick="window.location.reload()">Formula not shown right...</button-->
+<script>
+function loadScript(src) {
+  let script = document.createElement('script');
+  script.src = src;
+  script.async = false;
+  document.head.appendChild(script);
+}
+
+loadScript("../src/globals/mathJax-js.js");
+loadScript("../src/globals/polyfill.min.js");
+
+(function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem('firstLoad') )
+    {
+      localStorage['firstLoad'] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem('firstLoad');
+  }
+})();
+</script>

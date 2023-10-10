@@ -1,0 +1,101 @@
+:: PrimeGameDev [quiz]{"position":"175,1050","size":"100,100"}
+#Diffie Hellman The Game
+
+<div class="storyteller">
+Spielinfo:
+
+Primzahlen sind die Bausteine aller ganzen Zahlen. Entweder ist eine ganze Zahl selber eine Primzahl oder sie setzt sich aus Primzahlen zusammen.
+Die Zahl 12 zum Beispiel ist das Produkt von sogenannten Primfaktoren, also mehreren miteinander multiplizierten Primzahlen: 2 mal 2 mal 3. Eine Primzahl ist nur durch 1 und durch sich selbst teilbar.
+</div>
+
+##The prime game
+Deine Punktanzahl: (live: 0.5s)[(print: $SCORE)]
+(set: _question1 to "Prime is same like the service of Amazon Prime.")\
+(set: $BlOCKER_1 to false)\
+(set: _question2 to "The number 1 is prime.")\
+(set: _question3 to "The decision problem if a given number is prime has a polynomial complexity.")\
+
+Bitte wähle die passende Aussage, die genau zutrifft:
+($makeQuiz: _question1, false, _question2, false, _question3, true)\
+
+
+(set: $quiz2False to true)(set: $quiz2False2 to true)(set: $quiz2True to false)(set: $blocker2 to false)
+Bitte wähle die passende Aussage, die genau zutrifft:
+<div class="quiz">
+(checkbox: bind $quiz2False, "The number 0 is prime.")
+
+(checkbox: bind $quiz2True, "Prime numbers protect us from cybercrime.")
+
+(checkbox: bind $quiz2False2, "The set of all prime numbers is finite.")
+<button onclick="evaluatePrime2()">Auswerten</button>
+</div>
+
+($makeQuiz: "Prime is same like the service of Amazon Prime.", false, "The number 1 is prime", false, "The decision problem if a given number is prime has a polynomial complexity.", true)
+[[go |Spielwiese2]]
+
+
+:: Spielwiese2 [quiz]{"position":"175,1050","size":"100,100"}
+($makeQuiz: "Prime is same like the service of Amazon Prime.", false, "The number 1 is prime", true, "The decision problem if a given number is prime has a polynomial complexity.", true, 2)
+
+
+
+(set: $COMMON_PRIME to 42323)
+
+<Latex1>Placeholder</Latex1>
+<script>
+
+let bla = window.document.querySelector('Latex1');
+bla.innerText = '\\( Y_a = \\leq ' + eval($COMMON_PRIME) + ' \\)';
+
+</script>
+
+
+
+
+
+<button type="button"
+        className="btn btn-default"
+        onClick="invoke()"
+        id="1"
+        name='gotoNode'
+        data-arg='1234'>1234</button>
+
+<button type="button"
+        className="btn btn-default"
+        onClick="invoke()"
+        id="1"
+        name='gotoNode'
+        data-arg='_shouldBeFalse'>False</button>
+
+
+<button type="button"
+        className="btn btn-default"
+        onClick="invoke()"
+        id="1"
+        name='gotoNode'
+        data-arg='_shouldBeTrue'>True</button>
+
+
+<script>
+
+window.evaluatePrime2 = function(){
+    if(!$blocker2 && !$quiz2False && !$quiz2False2 && $quiz2True){
+        $score += 100;
+        $blocker2 = true;
+        alert("Correct! Your score: " + $score);
+    }
+     else if($blocker2){
+         alert("Already done little one ;)");
+    }
+        else {
+        alert("Wrong answer try again");
+    }
+}
+
+</script>
+
+
+(live: 1s)[(if: $blocker)[(if: $blocker2)[Great continue to the next page [[PrimeGame2 |PrimeGame2]]]]]
+
+
+

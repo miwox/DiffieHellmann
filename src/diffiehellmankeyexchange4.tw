@@ -1,0 +1,85 @@
+:: SecretKeyBox [quiz]{"position":"375,1050","size":"100,100"}
+($makeAnimatedTitle: "Diffie Hellman The Game")
+<div class="quiz-info">\
+The formular is:
+{\(The \: Secret \: Key \: = \: Y^s \: modulo \: p\)}
+
+{\(s\)} is your secret.
+{\(Y\)} is the public key of the other person. When you are Alice, {\(Y\)} is public key of Bob.
+{\(p\)} is the common prime number between Alice and Bob.
+
+So under that circumstances:
+
+<Bob></Bob>
+<Alice></Alice>\
+<!--- Very ugly, but because of Twine there is no other option !!! -->
+<script>
+let latex = window.document.querySelector("Bob");
+latex.innerText = "\\(Bobs \\: Secret \\: Key \\: is \\: S_{Bob} =\\:" + $ALICE_PUBLICKEY + "^{" + $BOBS_SECRET + "}\\: \\: modulo \\: \\: " + $COMMON_PRIME + "\\)";
+latex = window.document.querySelector("Alice");
+latex.innerText = "\\(Alice' \\: Secret \\: Key \\: is \\: S_{Alice} =\\:" + $BOBS_PUBLICKEY + "^{" + $ALICE_SECRET + "}\\: \\: modulo \\: \\: " + $COMMON_PRIME + "\\)";
+</script>\
+(display:"Refresh-Button")\
+($SHOW_TERMINAL:)
+</div>
+
+:: SecretKey {"position":"375,1050"}
+(display: "SecretKeyBox")
+Step 3:
+<div class="storyteller">\
+Now it's time to exchange your public keys. Even now it does not matter when someone is now your public keys.
+</div>
+
+Step 4: 
+<div class="storyteller">\
+So both of you received the public key of each other. So in the next step, you'll compute the secret key! Never ever share your secret key with someone.\
+</div>
+[[Let's calculate your secret keys Alice and Bob|SecretKeyCalculation]]
+
+:: SecretKeyCalculation [quiz]{"position":"375,1050","size":"100,100"}
+(set: $BLOCKER_1 to false)\
+($LOG_GLOBALS:)\
+(set: _question1 to "Bob's secret key is: " + $BOBS_SECRET_KEY + "1")\
+(set: _question2 to "Bob's secret key is: " + $BOBS_SECRET_KEY)\
+(set: _question3 to "Bob's secret key is: 13434")\
+(display: "SecretKeyBox")\
+
+Your score: (live: 0.5s)[(print: $SCORE)]
+<div class="storyteller">\
+Please calculate your secret keys!
+</div>
+($makeQuiz: _question1, false, _question2, true, _question3, false)
+
+(live: 1s)[(if: $BLOCKER_1)[[Let's go to Alice secret key.|SecretKeyCalculation2]]]
+
+:: SecretKeyCalculation2 [quiz]{"position":"375,1050","size":"100,100"}
+(set: $BLOCKER_1 to false)\
+($LOG_GLOBALS:)\
+(set: _question1 to "Alice secret key is: " + $ALICE_SECRET_KEY)\
+(set: _question2 to "Alice secret key is: " + $ALICE_SECRET_KEY + "0")\
+(set: _question3 to "Alice secret key is: 4334")\
+(display: "SecretKeyBox")\
+
+Your score: (live: 0.5s)[(print: $SCORE)]
+<div class="storyteller">\
+Please calculate your secret keys!
+</div>
+($makeQuiz: _question1, true, _question2, false, _question3, false)
+
+(live: 1s)[(if: $BLOCKER_1)[[Oh man that's georgious |SecretKeyCalculation3]]]
+
+:: SecretKeyCalculation3 [quiz]{"position":"375,1050","size":"100,100"}
+(set: $BLOCKER_1 to false)\
+($LOG_GLOBALS:)\
+(set: _question1 to "Bob's secret was the same like Alice secret!")\
+(set: _question2 to "Bob's secret has another prime number factorization.")\
+(set: _question3 to "Nothing.")\
+(display: "SecretKeyBox")\
+
+Your score: (live: 0.5s)[(print: $SCORE)]
+<div class="storyteller">\
+So what did you notice about your secret keys?
+</div>
+($makeQuiz: _question1, true, _question2, false, _question3, false)
+
+(live: 1s)[(if: $BLOCKER_1)[[Summary Diffie Hellman Key Exchange.|DiffieExplanation]]]

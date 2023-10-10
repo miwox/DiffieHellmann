@@ -1,0 +1,71 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build_Terminal",
+            "type": "shell",
+            "command":"tweego",
+            "args": [
+                "-o",
+                "./out/terminal.html",
+                "./srcterminal"
+            ],
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            }
+        },    
+        {
+            "label": "Build_Story",
+            "type": "shell",
+            "command":"tweego",
+            "args": [
+                "-o",
+                "./out/story.html",
+                "./src"
+            ],
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "echo": true,
+                "panel": "shared",
+                "group": "build"
+            }
+        },
+        {
+            "label": "Build Twine Story in debug mode",
+            "type": "shell",
+            "command":"tweego",
+            "args": [
+                "-t",
+                "-o",
+                "./out/story-d.html",
+                "./src"
+            ],
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "echo": true,
+                "panel": "shared",
+                "group": "build"
+            }
+        },
+        {
+            "label": "Build Twine Story",
+            "dependsOn": [
+                "Build_Story",
+                "Build_Terminal"
+            ]
+        }
+    ]
+}

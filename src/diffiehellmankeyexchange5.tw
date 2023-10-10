@@ -1,0 +1,9 @@
+:: DiffieExplanation [quiz]{"position":"375,1050","size":"100,100"}
+($makeAnimatedTitle: "DHM summary")
+(set: _text1 to "You could see that you both calculated the same secret key, only with your common prime and common primitive root. Even if Hellman the Mallory has both your public key he can't calculate the secret key, he has to brute-force it.")\
+(set: _holder to "Continue...")\
+(set: _text2 to "If you're using really big numbers like 1024 bits or more, Hellmann will never Brute-force your secrets in his lifetime. The Diffie-Hellman key exchange is based on the assumed difficulty of the discrete logarithm problem module a prime number. In our case Hellman needs one of your chosen secret and this is difficult to compute by knowing only your pubic keys.")\
+(set: _text3 to "But beware of man in the middle attacks <br> <br>[[Diffie-Hellman-Key-Exchange summary|DiffieExplanation2]]")\
+<div class="storyteller">\
+($continueTextClick: _text1, _holder, ($continueTextClick: _text2, _holder, (print: _text3)))
+</div>

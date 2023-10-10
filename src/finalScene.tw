@@ -1,0 +1,15 @@
+:: FinalScene [shoot]{"position":"175,700","size":"100,100"}
+(set: _text1 to "Bob sent his calculated B to the stranger number. Just at that moment, there were several knocks on the door. This time Bob would find out who the mystery person was. His gun was on the table. He put it in pants and opened the door. His eyes enlarged in shock. A Hellsolider was at his door.")\
+(set: _text2 to "The automatic rifle was pointed at him. Both were visibly confused. The Hellsolider had not expected the Resistance's most wanted criminal to answer the door, and Bob would not have expected a Hellsolider to be at his door. Bob threw himself to the side at just the right moment. Shots rang out from the AK-47 and penetrated the couch behind Bob. He aimed for his head and fired. The soldier was eliminated. He fell forward. A note was pinned to his back. Bob raised an eyebrow. The note had a simple A on it. He took the note and on the back was another long string of characters. Alice had tested him. Did she want to know if he was still one of the good guys? On the note he recognized the sentence in very small letters: If you make it to the mailbox, we'll see each other, you coward. He laughed and took the Hellsoldiers AK-47.<br><br>[[Continue...->FinalScene2]]")\
+(set: _holder to "Continue...")\
+<div class="storyteller">\
+($continueTextClick: _text1, _holder, (print: _text2))\
+</div>
+
+:: FinalScene2 [shoot2]{"position":"175,700","size":"100,100"}
+(set: _text1 to " Fortunately, it was not a new model with a fingerprint sensor. ")\
+(set: _text2 to "In the hallway further back, he heard more enemies shouting. A smoke grenade fogged the hallway, but Bob didn't care. He fired blindly into the smoke. This was his terrain. He had small acoustic signals hidden everywhere, which told him the location of his opponents. There was a reason this building was called the Tartarus Complex. It was hell within hell. No Hellsoldier would get out of here alive. He pulled the fire alarm, now the entire resistance knew it was time to make the world shake. The resistance fought their way down floor by floor. They killed one Hellsoldier after another. When Bob was at the mailboxes, he felt a euphoria rising inside him. He looked for Alice but did not find her. After a closer look, Bob realized that one of the mailboxes was open and inside, of course, was another note. But now there was a sequence of characters again. Fuck you Alice, he said to himself. Now he'll have to calculate the key first and decode this shit.<br><br>[[Continue...->CaluclateScene]] ")\
+(set: _holder to "Continue...")\
+<div class="storyteller">\
+($continueTextClick: _text1, _holder, (print: _text2))\
+</div>

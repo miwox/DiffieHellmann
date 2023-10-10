@@ -1,0 +1,17 @@
+:: PGScene [read]{"position":"175,700","size":"100,100"}
+(set: $BLOCKER_1 to false)\
+($makeAnimatedTitle: "Get in action!")
+<div class="storyteller">
+<div class="inline">
+<div class="left-container">
+Do you want Bob to read the page? 
+($showBase64MessageButton:)
+($SHOW_TERMINAL:)
+</div>
+<div class="right-container">
+($inputButtonDecodedBase64Elements:)
+</div>
+</div>
+(live: 1s)[(if: $BLOCKER_1)[Great continue to the next page [[Continue... |CalculateB]]]] 
+</div>
+</div>
